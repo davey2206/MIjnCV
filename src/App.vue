@@ -1,27 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div>
+        <h1 id="MainTitle">MijnCV</h1>
+    </div>
+    <div>
+        <h3>Zoek een Curriculum vitea</h3>
+        <input id="SearchBar" type="text" placeholder="Search" />
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
 
 export default defineComponent({
   name: 'App',
-  components: {
-    HelloWorld
+    components: {
+
   }
 });
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    #app {
+        font-family: Arial;
+        text-align: center;
+        color: white;
+    }
+    body{
+        background-color: #303234;
+    }
+    #MainTitle {
+        margin-top: 2em;
+        font-size: 8em;
+    }
+    #SearchBar {
+        border: none;
+        border-radius: 5px;
+        width: 300px;
+        font-size: 20px;
+    }
 </style>
