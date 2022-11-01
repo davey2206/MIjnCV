@@ -1,0 +1,8 @@
+<style scoped>
+
+</style>
+<template>
+    <div>
+        <h1>test</h1>
+    </div>
+</template>

@@ -1,4 +1,6 @@
 <template>
+  <div class="home">
+    <NavBar></NavBar>
     <div>
         <h1 id="MainTitle">MijnCV</h1>
     </div>
@@ -6,17 +8,19 @@
         <h3>Zoek een Curriculum vitea</h3>
         <input id="SearchBar" type="text" placeholder="Search" />
     </div>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script>
+// @ is an alias to /src
+import NavBar from '@/components/NavBar.vue';
 
-export default defineComponent({
-  name: 'App',
-    components: {
-
+export default {
+  name: 'HomeView',
+  components: {
+    NavBar
   }
-});
+}
 </script>
 
 <style>
