@@ -1,17 +1,20 @@
 <template>
   <div class="Test">
-    <h1>This is an about page</h1>
+    <NavBar></NavBar>
+    <LayoutMain></LayoutMain>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue';
+import LayoutMain from '@/components/LayoutMain.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    NavBar
+    NavBar,
+    LayoutMain
   }
 }
 </script>
