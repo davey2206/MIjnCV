@@ -1,11 +1,12 @@
 <style scoped>
 #section{
     padding-top: 52px;
-    width: 100vw;
-    height: 100vh;
+    width: 95vw;
+    height: 95vh;
+    margin: 1em;
 }
 #Image{
-    width: 90%;
+    width: 80%;
 }
 .row{
     height: 100%;
@@ -17,24 +18,25 @@
         <div class="row align-items-center">
             <div class="col">
                 <div class="container">
-                    <h1>Profile</h1>
+                    <h1>{{ Title }}</h1>
                     <p>
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
-                        bla bla bla bla bla bla bla bla 
+                        {{ Paragraph }}
                     </p>
                 </div>
             </div>
             <div class="col">
-                <img id="Image" src="https://cdn.discordapp.com/attachments/438780813807714304/1039513899537547264/unknown.png">
+                <img id="Image" v-bind:src="Pic">
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        Title: String,
+        Paragraph: String,
+        Pic: String
+    }
+}
+</script>
