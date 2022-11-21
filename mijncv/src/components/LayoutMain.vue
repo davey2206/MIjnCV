@@ -15,28 +15,44 @@
 </style>
 <template>
     <div id="section">
-        <div class="row align-items-center">
-            <div class="col">
-                <div class="container">
-                    <h1>{{ Title }}</h1>
-                    <p>
-                        {{ Paragraph }}
-                    </p>
+        <section v-if="loading">
+            <h1> loading.....</h1>
+        </section>
+        <section v-else>
+            {{Test}}
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="container">
+                        <h1>{{ Test.title }}</h1>
+                        <p>
+                            {{ Test.paragraph }}
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img id="Image" v-bind:src="Pic">
                 </div>
             </div>
-            <div class="col">
-                <img id="Image" v-bind:src="Pic">
-            </div>
-        </div>
+        </section>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     props: {
-        Title: String,
-        Paragraph: String,
+        ID: null,
         Pic: String
+    },
+    data () {
+        return {
+        Test: null,
+        loading: true
+        }
+    },
+    mounted(){
+        axios.get("https://localhost:7059/api/Sections/" + this.ID).then(response => (this.Test = response.data)).finally(() => this.loading = false)
     }
 }
 </script>
