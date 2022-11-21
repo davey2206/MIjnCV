@@ -5,12 +5,17 @@
     </section>
     <section v-else>
       <NavBar></NavBar>
-      <div v-for="Test in Tests">
-        <div v-if="Test.layout == 1">
-          <LayoutMain :ID="Test.id" Pic="https://cdn.discordapp.com/attachments/438780813807714304/1039513899537547264/unknown.png"></LayoutMain>
-        </div>
-        <div v-if="Test.layout == 2">
-          <LayoutMainAlt :ID="Test.id" Pic="https://cdn.discordapp.com/attachments/438780813807714304/1039513899537547264/unknown.png"></LayoutMainAlt>
+      <div v-for="Page in Pages">
+        <h1 style="margin-top: 52px;">{{Page.name}}</h1>
+        <div v-for="Section in Sections">
+          <div v-if="Page.id == Section.pageID">
+            <div v-if="Section.layout == 1">
+              <LayoutMain :ID="Section.id" Pic="https://cdn.discordapp.com/attachments/438780813807714304/1039513899537547264/unknown.png"></LayoutMain>
+            </div>
+            <div v-if="Section.layout == 2">
+              <LayoutMainAlt :ID="Section.id" Pic="https://cdn.discordapp.com/attachments/438780813807714304/1039513899537547264/unknown.png"></LayoutMainAlt>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -33,12 +38,14 @@ export default {
   },
   data () {
         return {
-        Tests: null,
+        Sections: null,
+        Pages: null,
         loading: true
         }
     },
     mounted(){
-        axios.get("https://localhost:7059/api/Sections").then(response => (this.Tests = response.data)).finally(() => this.loading = false)
+        axios.get("https://localhost:7059/api/Sections").then(response => (this.Sections = response.data)).finally(() => this.loading = false),
+        axios.get("https://localhost:7059/api/Pages").then(response => (this.Pages = response.data)).finally(() => this.loading = false)
     }
 }
 </script>
