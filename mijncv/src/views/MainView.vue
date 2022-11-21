@@ -18,6 +18,7 @@
           </div>
         </div>
       </div>
+      {{ $route.params.Id}}
     </section>
   </div>
 </template>

@@ -14,13 +14,13 @@
 }
 </style>
 <template>
-    <div id="section">
+    <div id="section" class="row align-items-center">
         <section v-if="loading">
             <h1> loading.....</h1>
         </section>
         <section v-else>
             {{Test}}
-            <div class="row align-items-center">
+            <div class="row">
                 <div class="col">
                     <img id="Image" v-bind:src="Pic">
                 </div>
