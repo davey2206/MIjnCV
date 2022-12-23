@@ -1,7 +1,7 @@
 <template>
   <div class="Test">
     <section v-if="loading">
-      <h1> loading.....</h1>
+      <h1>{{ $route.params.id }} loading.....</h1>
     </section>
     <section v-else>
       <NavBar></NavBar>
@@ -18,7 +18,6 @@
           </div>
         </div>
       </div>
-      {{ $route.params.Id}}
     </section>
   </div>
 </template>
@@ -37,16 +36,20 @@ export default {
     LayoutMain,
     LayoutMainAlt
   },
+  created() {
+   this.CV = this.$route.params.Id; 
+  },
   data () {
         return {
         Sections: null,
         Pages: null,
-        loading: true
+        loading: true,
+        CV: null
         }
     },
     mounted(){
-        axios.get("https://localhost:7059/api/Sections").then(response => (this.Sections = response.data)).finally(() => this.loading = false),
-        axios.get("https://localhost:7059/api/Pages").then(response => (this.Pages = response.data)).finally(() => this.loading = false)
+        axios.get("https://localhost:7059/api/Sections/CV/" + this.CV).then(response => (this.Sections = response.data)).finally(() => this.loading = false),
+        axios.get("https://localhost:7059/api/Pages/CV/" + this.CV).then(response => (this.Pages = response.data)).finally(() => this.loading = false)
     }
 }
 </script>
