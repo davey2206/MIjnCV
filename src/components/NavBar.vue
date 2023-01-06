@@ -33,7 +33,20 @@ nav a:hover:not(.active) {
 </style>
 <template>
     <nav>
-        <router-link to="/" id="Link">Home</router-link>
-        <router-link to="/Test">Test</router-link>
+        <router-link to="/">MijnCV</router-link>
+        <div v-for="Page in Pages">
+            <a :href="'#' + Page.name">{{ Page.name }}</a>
+        </div>
     </nav>
 </template>
+
+<script>
+import axios from 'axios';
+
+export default {
+    props: {
+        ID: null,
+        Pages: null,
+    },
+}
+</script>

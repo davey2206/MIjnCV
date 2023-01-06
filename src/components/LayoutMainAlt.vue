@@ -19,16 +19,15 @@
             <h1> loading.....</h1>
         </section>
         <section v-else>
-            {{Test}}
             <div class="row">
                 <div class="col">
                     <img id="Image" v-bind:src="Pic">
                 </div>
                 <div class="col">
                     <div class="container">
-                        <h1>{{ Test.title }}</h1>
+                        <h1>{{ CV.title }}</h1>
                         <p>
-                            {{ Test.paragraph }}
+                            {{ CV.paragraph }}
                         </p>
                     </div>
                 </div>
@@ -47,12 +46,12 @@ export default {
     },
     data () {
         return {
-        Test: null,
+        CV: null,
         loading: true
         }
     },
     mounted(){
-        axios.get("https://localhost:7059/api/Sections/" + this.ID).then(response => (this.Test = response.data)).finally(() => this.loading = false)
+        axios.get("https://localhost:7059/api/Sections/" + this.ID).then(response => (this.CV = response.data)).finally(() => this.loading = false)
     }
 }
 </script>
