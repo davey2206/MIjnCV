@@ -7,6 +7,7 @@
 }
 #Image{
     width: 80%;
+    max-width: 500px;
 }
 .row{
     height: 100%;

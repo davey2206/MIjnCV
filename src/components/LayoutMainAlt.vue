@@ -7,6 +7,7 @@
 }
 #Image{
     width: 80%;
+    max-width: 500px;
 }
 .row{
     height: 100%;
@@ -19,7 +20,7 @@
             <h1> loading.....</h1>
         </section>
         <section v-else>
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col">
                     <img id="Image" v-bind:src="Pic">
                 </div>
