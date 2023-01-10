@@ -51,7 +51,8 @@ export default {
     },
     mounted(){
         axios.get("https://localhost:7059/api/Sections/CV/" + this.CV).then(response => (this.Sections = response.data)).finally(() => this.loading = false),
-        axios.get("https://localhost:7059/api/Pages/CV/" + this.CV).then(response => (this.Pages = response.data)).finally(() => this.loading = false)
+        axios.get("https://localhost:7059/api/Pages/CV/" + this.CV).then(response => (this.Pages = response.data)).finally(() => this.loading = false),
+        axios.post("https://localhost:7236/api/Statistics/Viewcount/" + this.CV).then(function (response){  })
     }
 }
 </script>
